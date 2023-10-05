@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
+import '../widgets/AttendanceListWidget.dart';
 
 class MainScreen extends StatelessWidget {
   Color primaryColor = Color(0xFF6C5EA8);
@@ -32,6 +33,7 @@ class MainScreen extends StatelessWidget {
       ),
       body: Container(
         alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(horizontal: 13.0),
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -43,14 +45,15 @@ class MainScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 260,
+                      width: 230,
                       height: 40,
                       child: TextField(
                         decoration: InputDecoration(
@@ -66,8 +69,50 @@ class MainScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                Container(
+                  width: 40, // Set the width as needed
+                  height: 40, // Set the height as needed
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      foregroundColor:
+                          Colors.white, // Background color of the button
+                      backgroundColor: Color.fromARGB(255, 241, 107, 88),
+                    ),
+                    onPressed: () {
+                      // Add your button's onPressed logic here
+                      print('Elevated Button Pressed');
+                    },
+                    child: HeroIcon(
+                      HeroIcons.plus, style: HeroIconStyle.outline,
+                      size: 30, // Set the size as needed
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 40, // Set the width as needed
+                  height: 40, // Set the height as needed
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      foregroundColor:
+                          Colors.white, // Background color of the button
+                      backgroundColor: Color.fromARGB(255, 98, 204, 218),
+                    ),
+                    onPressed: () {
+                      // Add your button's onPressed logic here
+                      print('Elevated Button Pressed');
+                    },
+                    child: HeroIcon(
+                      HeroIcons.clock, style: HeroIconStyle.outline,
+                      size: 30, // Set the size as needed
+                    ),
+                  ),
+                )
               ],
-            )
+            ),
+            const SizedBox(height: 15),
+            AttendanceListWidget(),
           ],
         ),
       ),
